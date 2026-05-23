@@ -1,4 +1,3 @@
-// form.js
 import { database, ref, get, set } from './firebase-config.js';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -21,8 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadProductForEdit(id) {
-    const productRef = ref(database, `products/${id}`);
-    const snapshot = await get(productRef);
+    const snapshot = await get(ref(database, `products/${id}`));
     if (snapshot.exists()) {
         const product = snapshot.val();
         currentProductId = id;
@@ -56,17 +54,14 @@ async function saveProduct(e) {
     const productData = { name, category, detail, price, image, soldOut };
 
     if (editId && currentProductId) {
-        // Update
         await set(ref(database, `products/${currentProductId}`), { ...productData, id: currentProductId });
     } else {
-        // Tambah baru
         const newId = Date.now();
         await set(ref(database, `products/${newId}`), { ...productData, id: newId });
     }
 
-    // Hapus cache agar index.html refresh data
     localStorage.removeItem("cachedProducts");
     window.dispatchEvent(new Event('storage'));
     alert("Produk berhasil disimpan!");
     window.location.href = "admin.html";
-}
+        }
