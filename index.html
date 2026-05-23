@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>HamzShop | Jual, Beli & Rental Akun Game</title>
+    <title>HamzShop | Jual Akun Game Original</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -19,11 +19,48 @@
             </div>
         </header>
 
-        <section class="hero">
-            <h2>🔥 Beli Akun Game Favoritmu</h2>
-            <p>Klik "Beli Sekarang" → otomatis terhubung ke CS kami via WhatsApp. Proses cepat, aman, dan terpercaya.</p>
-            <div class="badge"><i class="fas fa-shield-alt"></i> Garansi 7-15 Hari</div>
-        </section>
+        <!-- Banner Slider -->
+        <div class="banner-slider">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <div class="slide">
+                        <img src="https://img2.pixhost.to/images/8108/729752811_alip-1779536693391.jpg" alt="Banner 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://img2.pixhost.to/images/8109/729762157_alip-1779538365297.jpg" alt="Banner 2">
+                    </div>
+                </div>
+                <button class="slider-prev" id="prevBtn">❮</button>
+                <button class="slider-next" id="nextBtn">❯</button>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <!-- Filter & Pencarian -->
+        <div class="filter-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari akun game...">
+            </div>
+            <div class="filter-group">
+                <select id="categoryFilter">
+                    <option value="all">Semua Kategori</option>
+                    <option value="Mobile Legends">Mobile Legends</option>
+                    <option value="Free Fire">Free Fire</option>
+                    <option value="Valorant">Valorant</option>
+                    <option value="Genshin Impact">Genshin Impact</option>
+                    <option value="Others">Lainnya</option>
+                </select>
+                <select id="priceFilter">
+                    <option value="all">Semua Harga</option>
+                    <option value="0-500000">Rp 0 - 500rb</option>
+                    <option value="500000-1000000">Rp 500rb - 1jt</option>
+                    <option value="1000000-2000000">Rp 1jt - 2jt</option>
+                    <option value="2000000-999999999">Di atas 2jt</option>
+                </select>
+                <button id="resetFilterBtn" class="reset-btn"><i class="fas fa-undo-alt"></i> Reset</button>
+            </div>
+        </div>
 
         <div class="section-title">
             <i class="fas fa-store"></i>
@@ -35,19 +72,40 @@
         </div>
 
         <footer class="footer">
-            <p>© 2026 HamzShop | Jual beli akun game terpercaya</p>
-            <p class="hint">Admin: <i class="fab fa-whatsapp"></i> <span id="waNumberDisplay">+62 887-0699-7166</span></p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@zrill_bae11" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/@nzril1lhm_" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/6288706997166" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 HamzShop | Jual beli akun game terpercaya</p>
+            <p class="hint">Admin: <i class="fab fa-whatsapp"></i> <span id="waNumberDisplay">+62 812-3456-7890</span></p>
             <div class="admin-link">
                 <a href="admin.html"><i class="fas fa-lock"></i> Admin Panel</a>
             </div>
         </footer>
     </div>
 
-    <div class="wa-float" id="waFloat">
+    <div class="wa-float">
         <a href="#" target="_blank" id="floatWaLink"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Modal Join WhatsApp Channel -->
+    <div id="joinWaModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>Join Saluran WhatsApp HamzShop</h3>
+            <p>Dapatkan update akun game terbaru, promo spesial, dan info stok langsung dari admin!</p>
+            <a href="https://whatsapp.com/channel/0029VbAStd0Lo4hc3Pvp6h1q" id="joinWaLink" class="modal-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Gabung Sekarang
+            </a>
+            <button class="modal-dismiss">Nanti Saja</button>
+        </div>
     </div>
 
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="script.js"></script>
 </body>
-</html>
+</html> 
