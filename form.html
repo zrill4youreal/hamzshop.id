@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Produk - GameStoreID Admin</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2 id="formTitle"><i class="fas fa-plus-circle"></i> Tambah Produk Baru</h2>
+        <form id="productForm">
+            <div class="form-group">
+                <label>Nama Produk *</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label>Kategori Game *</label>
+                <input type="text" id="category" placeholder="Contoh: Mobile Legends, Free Fire, Valorant" required>
+            </div>
+            <div class="form-group">
+                <label>Detail / Deskripsi *</label>
+                <textarea id="detail" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Harga (Rp) *</label>
+                <input type="number" id="price" required>
+            </div>
+            <div class="form-group">
+                <label>URL Gambar Produk</label>
+                <input type="url" id="image" placeholder="https://...">
+                <small>Biarkan kosong untuk gambar default</small>
+            </div>
+            <div class="form-group checkbox">
+                <label>
+                    <input type="checkbox" id="soldOut"> Status Sold Out
+                </label>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" id="saveBtn"><i class="fas fa-save"></i> Simpan Produk</button>
+                <button type="button" id="cancelBtn"><i class="fas fa-times"></i> Batal</button>
+            </div>
+        </form>
+    </div>
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="form.js"></script>
+</body>
+</html>

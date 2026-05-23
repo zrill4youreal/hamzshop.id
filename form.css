@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0f1e;
+    color: #eef2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.form-container {
+    background: #0f172a;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #3b82f6;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 0.8rem;
+    border: 1px solid #334155;
+    background: #1e293b;
+    color: white;
+    font-family: inherit;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#saveBtn {
+    background: #10b981;
+    color: white;
+}
+
+#cancelBtn {
+    background: #475569;
+    color: white;
+}
+
+small {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: block;
+    margin-top: 0.3rem;
+}

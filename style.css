@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0f1e, #03060c);
+    color: #eef2ff;
+    line-height: 1.6;
+    padding: 1.5rem;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(59,130,246,0.3);
+}
+
+.logo h1 {
+    font-size: 1.9rem;
+    background: linear-gradient(135deg, #c084fc, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-info {
+    background: #1e293b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+}
+
+.hero {
+    background: linear-gradient(115deg, #0f172ad9, #020617d9), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    display: inline-block;
+    background: #22c55e33;
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 2rem 0 1.5rem;
+    font-size: 1.6rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+.product-card {
+    background: #0f172ad9;
+    backdrop-filter: blur(4px);
+    border-radius: 1.2rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #1e293b;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -12px rgba(0,0,0,0.5);
+    border-color: #3b82f6;
+}
+
+.card-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.soldout-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #dc2626;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.card-content {
+    padding: 1.2rem;
+}
+
+.game-category {
+    display: inline-block;
+    background: #3b82f620;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.product-detail {
+    font-size: 0.8rem;
+    color: #cbd5e6;
+    margin: 0.5rem 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fbbf24;
+    margin: 0.8rem 0;
+}
+
+.btn-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: linear-gradient(95deg, #25D366, #128C7E);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: inherit;
+}
+
+.btn-buy:hover {
+    transform: scale(0.98);
+    background: linear-gradient(95deg, #20b859, #0e6b5e);
+}
+
+.btn-disabled {
+    background: #334155;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1e293b;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.admin-link {
+    margin-top: 1rem;
+}
+.admin-link a {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+.admin-link a:hover {
+    opacity: 1;
+    color: #3b82f6;
+}
+
+.wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px black;
+    z-index: 99;
+}
+
+.wa-float a {
+    color: white;
+    font-size: 2rem;
+}
+
+.loading {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 2rem;
+}
+
+@media (max-width: 640px) {
+    body { padding: 1rem; }
+    .hero h2 { font-size: 1.5rem; }
+}

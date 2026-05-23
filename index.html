@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HamzShop | Jual, Beli & Rental Akun Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> HamzShop</h1>
+                <p>Akun Game Premium • Langsung ke WhatsApp Admin</p>
+            </div>
+            <div class="contact-info">
+                <i class="fab fa-whatsapp"></i> Fast Response
+            </div>
+        </header>
+
+        <section class="hero">
+            <h2>🔥 Beli Akun Game Favoritmu</h2>
+            <p>Klik "Beli Sekarang" → otomatis terhubung ke CS kami via WhatsApp. Proses cepat, aman, dan terpercaya.</p>
+            <div class="badge"><i class="fas fa-shield-alt"></i> Garansi 7-15 Hari</div>
+        </section>
+
+        <div class="section-title">
+            <i class="fas fa-store"></i>
+            <h3>Semua Akun Game</h3>
+        </div>
+
+        <div id="productsGrid" class="products-grid">
+            <div class="loading">⏳ Memuat produk...</div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 HamzShop | Jual beli akun game terpercaya</p>
+            <p class="hint">Admin: <i class="fab fa-whatsapp"></i> <span id="waNumberDisplay">+62 887-0699-7166</span></p>
+            <div class="admin-link">
+                <a href="admin.html"><i class="fas fa-lock"></i> Admin Panel</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="wa-float" id="waFloat">
+        <a href="#" target="_blank" id="floatWaLink"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
