@@ -1,22 +1,17 @@
-// admin.js
-import { database, ref, get, set, remove, update } from './firebase-config.js';
+import { database, ref, get, set, remove } from './firebase-config.js';
 
 const ADMIN_PASS_KEY = "GameStoreAdminPass";
-const DEFAULT_PASS = "HAMZ";
+const DEFAULT_PASS = "admin123";
 
-let isLoggedIn = false;
 let products = [];
 
-// Helper escape
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
 }
 
-// Login logic
 function checkLogin() {
     if (sessionStorage.getItem("adminLoggedIn") === "true") {
-        isLoggedIn = true;
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("dashboard").style.display = "block";
         loadAdminProducts();
@@ -45,7 +40,6 @@ function logout() {
     checkLogin();
 }
 
-// Load produk dari Firebase
 async function loadAdminProducts() {
     const container = document.getElementById("adminProductsGrid");
     container.innerHTML = '<div class="loading">Memuat...</div>';
@@ -58,9 +52,9 @@ async function loadAdminProducts() {
             products = [];
         }
         renderAdminProducts();
-    } catch (error) {
-        console.error(error);
-        container.innerHTML = '<div class="loading">Gagal memuat data. Cek koneksi.</div>';
+    } catch (err) {
+        console.error(err);
+        container.innerHTML = '<div class="loading">Gagal memuat data.</div>';
     }
 }
 
@@ -91,11 +85,8 @@ function renderAdminProducts() {
         `;
     }
     container.innerHTML = html;
-    // Event listeners
     document.querySelectorAll('.btn-edit').forEach(btn => {
-        btn.addEventListener('click', () => {
-            window.location.href = `form.html?edit=${btn.dataset.id}`;
-        });
+        btn.addEventListener('click', () => window.location.href = `form.html?edit=${btn.dataset.id}`);
     });
     document.querySelectorAll('.btn-toggle').forEach(btn => {
         btn.addEventListener('click', () => toggleSoldOut(parseInt(btn.dataset.id)));
@@ -115,9 +106,7 @@ async function toggleSoldOut(id) {
         product.soldOut = !product.soldOut;
         await set(productRef, product);
         await loadAdminProducts();
-        // Invalidate cache di localStorage agar index.html update
         localStorage.removeItem("cachedProducts");
-        // Trigger storage event
         window.dispatchEvent(new Event('storage'));
     }
 }
@@ -135,9 +124,7 @@ function changeWaNumber() {
         localStorage.setItem("AdminWaNumber", newWa);
         alert("Nomor WA berhasil diubah!");
         window.dispatchEvent(new Event('storage'));
-    } else if (newWa) {
-        alert("Format nomor salah! Hanya angka 10-15 digit.");
-    }
+    } else if (newWa) alert("Format nomor salah!");
 }
 
 function changeAdminPassword() {
@@ -152,21 +139,14 @@ function changeAdminPassword() {
         localStorage.setItem(ADMIN_PASS_KEY, newPass);
         alert("Password berhasil diubah! Silakan login ulang.");
         logout();
-    } else {
-        alert("Password baru minimal 4 karakter.");
-    }
+    } else alert("Password baru minimal 4 karakter.");
 }
 
-// Event listener
 document.addEventListener("DOMContentLoaded", () => {
     checkLogin();
-    document.getElementById("loginBtn")?.addEventListener("click", () => {
-        login(document.getElementById("adminPassword").value);
-    });
+    document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("adminPassword").value));
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
-    document.getElementById("addProductBtn")?.addEventListener("click", () => {
-        window.location.href = "form.html?add=new";
-    });
+    document.getElementById("addProductBtn")?.addEventListener("click", () => window.location.href = "form.html?add=new");
     document.getElementById("changeWaBtn")?.addEventListener("click", changeWaNumber);
     document.getElementById("changePasswordBtn")?.addEventListener("click", changeAdminPassword);
 });
